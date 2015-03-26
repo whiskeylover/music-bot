@@ -1,4 +1,4 @@
-# Music Generation Bot
+# music-bot
 
 Attept at a web app to generate pleasant sounding music on demand. (Work
 in Progress)
