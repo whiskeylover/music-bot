@@ -1,0 +1,20 @@
+{
+  "name": "music-bot",
+  "version": "0.0.0",
+  "authors": [
+    "C.J. Bordeleau <cj@cj.gg>"
+  ],
+  "description": "music generation",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tone": "*",
+    "bootstrap": "~3.3.4"
+  }
+}
