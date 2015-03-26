@@ -1,8 +1,8 @@
 # music-bot
 
-Attept at a web app to generate pleasant sounding music on demand. (Work
+Attempt at a web app to generate pleasant sounding music on demand. (Work
 in Progress)
 
-contributors: 
-  Tim Coffey
-  C.J. Bordeleau
+###contributors: 
+* Tim Coffey
+* C.J. Bordeleau
