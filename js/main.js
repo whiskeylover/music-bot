@@ -5,10 +5,15 @@ var synth = new Tone.MonoSynth();
 //connect the synth to the master output channel
 synth.toMaster();
 
+// Set Scale
+var notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
+var position = 0;
+
 //create a callback which is invoked every quarter note
 Tone.Transport.setInterval(function(time){
-    //trigger middle C for the duration of an 8th note
-    synth.triggerAttackRelease("C4", "8n", time);
+    var note = notes[position++];
+    position = position % notes.length;
+    synth.triggerAttackRelease(note, "8n", time);
 }, "4n");
 
 //start the transport
