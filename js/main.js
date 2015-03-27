@@ -16,6 +16,7 @@ Tone.Transport.start();
 
 $(document).ready(function() {
   $("#tempo-slider").slider({
+    min: 40,
     max: 240,
     value: 120,
     slide: function(event, ui) {
