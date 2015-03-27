@@ -1,4 +1,9 @@
 /* Application Styles */
-.tempo-container {
+.container {
   margin-top: 20px;
+  text-align: center;
+}
+
+div {
+  margin-bottom: 20px;
 }

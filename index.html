@@ -4,18 +4,21 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/tone/build/Tone.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <!-- endbower -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css"/>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/main.js"></script>
   </head>
   <body>
     <div class="container">
-      <div class="col-md-12 tempo-container">
-        <label name="tempo">tempo:</label>
-        <input type="number" name="tempo" value="120" id="tempo-input"/>
+      <div class="col-md-12">
+        <h2>Tempo Control</h2>
+        <div id="tempo-val">120</div>
+        <div id="tempo-slider"/>
       </div>
     </div>
   </body>
