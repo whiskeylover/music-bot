@@ -1,4 +1,3 @@
-// Main Application JS
 //create one of Tone's built-in synthesizers
 var synth = new Tone.MonoSynth();
 
@@ -6,7 +5,14 @@ var synth = new Tone.MonoSynth();
 synth.toMaster();
 
 // Set Scale
-var notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"];
+keys = {
+  "C Major": ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"],
+  "G Major": ["G4", "A4", "B4", "C5", "D5", "E5", "F#5", "G5"],
+  "D Major": ["D4", "E4", "F#4", "G4", "A4", "B4", "C#5", "D5"],
+  "E Major": ["E4", "F#4", "G#4", "A4", "B4", "C#5", "D#5", "E5"]
+}
+var notes = keys["C Major"];
+var currentKey = "C Major";
 var position = 0;
 
 //create a callback which is invoked every quarter note
@@ -20,6 +26,8 @@ Tone.Transport.setInterval(function(time){
 Tone.Transport.start();
 
 $(document).ready(function() {
+
+  // tempo handler
   $("#tempo-slider").slider({
     min: 40,
     max: 240,
@@ -28,5 +36,12 @@ $(document).ready(function() {
       $("#tempo-val").text(ui.value);
       Tone.Transport.bpm.value = ui.value;
     }
+  });
+
+  // key handler
+  $("#key-buttons button").on("click", function(event) {
+     currentKey = $(event.currentTarget).text();
+     notes = keys[currentKey];
+     $("#key-val").text(currentKey);
   });
 })
