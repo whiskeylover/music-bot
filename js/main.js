@@ -1,5 +1,5 @@
 //create one of Tone's built-in synthesizers
-var synth = new Tone.MonoSynth();
+var synth = new Tone.DuoSynth();
 
 //connect the synth to the master output channel
 synth.toMaster();
