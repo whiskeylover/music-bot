@@ -14,12 +14,10 @@ keys = {
 }
 var notes = keys["C Major"];
 var currentKey = "C Major";
-var position = 0;
 
 //create a callback which is invoked every quarter note
 Tone.Transport.setInterval(function(time){
-    var note = notes[position++];
-    position = position % notes.length;
+    var note = notes[Math.floor(Math.random() * notes.length)];
     synth.triggerAttackRelease(note, "8n", time);
 }, "4n");
 
@@ -42,7 +40,6 @@ $(document).ready(function() {
   // key handler
   $("#key-buttons button").on("click", function(event) {
      currentKey = $(event.currentTarget).text();
-     position = 0;
      notes = keys[currentKey];
      $("#key-val").text(currentKey);
   });
