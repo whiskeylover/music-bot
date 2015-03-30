@@ -42,6 +42,7 @@ $(document).ready(function() {
   // key handler
   $("#key-buttons button").on("click", function(event) {
      currentKey = $(event.currentTarget).text();
+     position = 0;
      notes = keys[currentKey];
      $("#key-val").text(currentKey);
   });
