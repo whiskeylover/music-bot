@@ -19,7 +19,7 @@ var currentKey = "C Major";
 Tone.Transport.setInterval(function(time){
     var note = notes[Math.floor(Math.random() * notes.length)];
     synth.triggerAttackRelease(note, "8n", time);
-}, "4n");
+}, "8n");
 
 //start the transport
 Tone.Transport.start();
