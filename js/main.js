@@ -100,6 +100,7 @@ Tone.Transport.setInterval(function(time){
 
   if (i == 32) {
     i = 1;
+    $("#notes-played").append("<b>|</b> ");
   } else {
     i++;
   }
@@ -135,6 +136,7 @@ $(document).ready(function() {
      currentKey = $(event.currentTarget).text();
      notes = keys[currentKey];
      $("#key-val").text(currentKey);
+     $("#notes-played").append("<br/><h4>Key changed to " + currentKey + "</h4>");
      i = 1;
   });
 })
