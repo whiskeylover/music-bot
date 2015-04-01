@@ -1,5 +1,5 @@
 //create one of Tone's built-in synthesizers
-var synth = new Tone.DuoSynth();
+var synth = new Tone.MonoSynth();
 
 //connect the synth to the master output channel
 synth.toMaster();
@@ -95,14 +95,14 @@ Tone.Transport.setInterval(function(time){
   }
 
   // play note
-  synth.triggerAttackRelease(note, "4n", time);
+  synth.triggerAttackRelease(note, "8n", time);
 
   if (i == 32) {
     i = 1;
   } else {
     i++;
   }
-}, "4n");
+}, "8n");
 
 //start the transport
 Tone.Transport.start();
@@ -125,5 +125,6 @@ $(document).ready(function() {
      currentKey = $(event.currentTarget).text();
      notes = keys[currentKey];
      $("#key-val").text(currentKey);
+     i = 1;
   });
 })
