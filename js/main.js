@@ -110,6 +110,15 @@ Tone.Transport.start();
 
 $(document).ready(function() {
 
+  // play/pause
+  $("#play").click(function (event) {
+    Tone.Transport.start();
+  });
+
+  $("#pause").click(function (event) {
+    Tone.Transport.pause();
+  });
+
   // tempo handler
   $("#tempo-slider").slider({
     min: 40,
