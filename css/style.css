@@ -7,3 +7,7 @@
 div {
   margin-bottom: 20px;
 }
+
+#notes-played {
+  text-align: left;
+}

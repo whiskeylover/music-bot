@@ -96,6 +96,7 @@ Tone.Transport.setInterval(function(time){
 
   // play note
   synth.triggerAttackRelease(note, "8n", time);
+  $("#notes-played").append(note + " ");
 
   if (i == 32) {
     i = 1;
