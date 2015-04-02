@@ -12,7 +12,7 @@ keys = {
   "A Major": ["A4", "B4", "C#5", "D5", "E5", "F#5", "G#5", "A5"],
   "E Major": ["E4", "F#4", "G#4", "A4", "B4", "C#5", "D#5", "E5"]
 }
-var notes = keys["C Major"];
+var key = keys["C Major"];
 var note = "C4";
 var currentKey = "C Major";
 var rand = Math.random();
@@ -21,13 +21,10 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//create a callback which is invoked every quarter note
-var i = 1;
-Tone.Transport.setInterval(function(time){
-
+function getNote(notes, beat) {
   // determine note to play
   rand = Math.random();
-  switch (i) {
+  switch (beat) {
     case 1:
       note = notes[0];
       break;
@@ -93,10 +90,18 @@ Tone.Transport.setInterval(function(time){
     default:
       note = notes[Math.floor(Math.random() * notes.length)];
   }
+  return note
+}
+
+//create a callback which is invoked every quarter note
+var i = 1;
+Tone.Transport.setInterval(function(time){
+
+  var nextNote = getNote(key, i);
 
   // play note
-  synth.triggerAttackRelease(note, "8n", time);
-  $("#notes-played").append(note + " ");
+  synth.triggerAttackRelease(nextNote, "8n", time);
+  $("#notes-played").append(nextNote);
 
   if (i == 32) {
     i = 1;
@@ -134,7 +139,7 @@ $(document).ready(function() {
   // key handler
   $("#key-buttons button").on("click", function(event) {
      currentKey = $(event.currentTarget).text();
-     notes = keys[currentKey];
+     key = keys[currentKey];
      $("#key-val").text(currentKey);
      $("#notes-played").append("<br/><h4>Key changed to " + currentKey + "</h4>");
      i = 1;
