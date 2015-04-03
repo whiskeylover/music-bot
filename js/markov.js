@@ -108,7 +108,7 @@ function getNextNote(note)
 }
 
 //create a callback which is invoked every quarter note
-var c = 1;
+var i = 1;
 Tone.Transport.setInterval(function(time){
 
   note = getNextNote(note);
@@ -118,15 +118,11 @@ Tone.Transport.setInterval(function(time){
   synth.triggerAttackRelease(key, "8n", time);
   $("#notes-played").append(key);
 
-  if ((c % 4) == 0)
-  {
-  	$("#notes-played").append(" ");
-  }
-  if (c == 32) {
-    c = 1;
+  if (i == 32) {
+    i = 1;
     $("#notes-played").append("<b>|</b> ");
   } else {
-    c++;
+    i++;
   }
 }, "8n");
 
